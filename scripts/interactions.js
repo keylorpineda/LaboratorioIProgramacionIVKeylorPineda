@@ -93,12 +93,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
     
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
+    console.log('Menu elements:', { menuToggle, navMenu, navLinksCount: navLinks.length });
+    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            console.log('Menu toggle clicked');
             navMenu.classList.toggle('active');
             menuToggle.classList.toggle('active');
+            console.log('Menu is now:', navMenu.classList.contains('active') ? 'OPEN' : 'CLOSED');
         });
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                console.log('Nav link clicked, closing menu');
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    } else {
+        console.error('Menu toggle or nav menu not found!');
     }
     
     const animateCounter = (element, target, duration = 2000) => {

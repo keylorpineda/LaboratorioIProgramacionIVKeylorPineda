@@ -287,15 +287,17 @@ body::after {
     display: none;
     background: none;
     border: none;
-    color: var(--color-white);
+    color: var(--color-ocean);
     cursor: pointer;
     padding: 0.5rem;
 }
 
 .menu-icon-svg,
 .menu-close-svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+    stroke-width: 2;
 }
 
 .menu-close-svg {
@@ -930,6 +932,7 @@ body::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
     border-radius: 25px;
     position: relative;
     z-index: 1;
