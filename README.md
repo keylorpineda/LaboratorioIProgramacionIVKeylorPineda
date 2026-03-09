@@ -326,8 +326,7 @@ Este perfil se construyó porque representa la intersección de mayor frecuencia
 
 El portafolio fue diseñado para postular al puesto de **Senior Full Stack Developer**. Cada decisión responde a un hallazgo concreto de esta investigación:
 
-- **Sección Arsenal Tecnológico** organizada en Frontend, Backend, Cloud y Testing → replica exactamente las categorías que evalúan los reclutadores según todas las ofertas analizadas
-- **Proyectos con métricas** (99.99% uptime, 90% fraud detection) → responde al requisito de evidencia de impacto
+- **Sección Stack Tecnológico** organizada en Frontend, Backend, Cloud y Testing → replica exactamente las categorías que evalúan los reclutadores según todas las ofertas analizadas
 - **Certificaciones AWS Professional visibles** → AWS aparece en el 100% de las ofertas
 
 ---
