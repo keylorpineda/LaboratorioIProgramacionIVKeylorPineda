@@ -141,7 +141,7 @@
     }
     
     .menu-toggle {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         align-items: center;
         gap: 0.25rem;
@@ -149,16 +149,18 @@
         position: relative;
         cursor: pointer;
         padding: 0.75rem;
-        background: rgba(14, 165, 233, 0.1);
+        background: rgba(14, 165, 233, 0.2);
         border-radius: 8px;
-        border: 1px solid rgba(14, 165, 233, 0.3);
+        border: 1px solid rgba(14, 165, 233, 0.5);
         transition: all 0.3s ease;
+        color: #38BDF8;
     }
     
     .menu-toggle svg {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
         stroke: currentColor;
+        stroke-width: 2.5;
     }
     
     .menu-toggle:hover {

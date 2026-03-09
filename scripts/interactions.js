@@ -1,7 +1,52 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Menu Mobile Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
     
-
+    console.log('🔍 Menu Debug:', { 
+        menuToggle: !!menuToggle, 
+        navMenu: !!navMenu, 
+        navLinksCount: navLinks.length 
+    });
+    
+    if (menuToggle && navMenu) {
+        // Toggle menu on button click
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isActive = navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            
+            console.log('📱 Menu toggled:', isActive ? 'OPEN' : 'CLOSED');
+        });
+        
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('🔗 Link clicked, closing menu');
+                navMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                if (navMenu.classList.contains('active')) {
+                    console.log('🔲 Clicked outside, closing menu');
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            }
+        });
+    } else {
+        console.error('❌ Menu elements not found!', { menuToggle, navMenu });
+    }
+    
+    // Parallax Effect
     const parallaxElements = document.querySelectorAll('.glass-card, .hero-visual, .floating-element');
     
     document.addEventListener('mousemove', (e) => {
@@ -18,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-
+    // 3D Glass Card Effect
     const cards = document.querySelectorAll('.glass-card');
     
     cards.forEach(card => {
@@ -41,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Scroll Reveal Animation
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -56,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     
-
+    // Magnetic Buttons
     const magneticBtns = document.querySelectorAll('.magnetic-btn');
     
     magneticBtns.forEach(btn => {
@@ -73,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -83,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    // Gradient Cursor
     const gradientCursor = document.querySelector('.gradient-cursor');
     if (gradientCursor) {
         document.addEventListener('mousemove', (e) => {
@@ -90,40 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
             gradientCursor.style.top = e.clientY + 'px';
         });
     }
-
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
     
-    console.log('Menu elements:', { menuToggle, navMenu, navLinksCount: navLinks.length });
-    
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            console.log('Menu toggle clicked');
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            console.log('Menu is now:', navMenu.classList.contains('active') ? 'OPEN' : 'CLOSED');
-        });
-        
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                console.log('Nav link clicked, closing menu');
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            });
-        });
-        
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        });
-    } else {
-        console.error('Menu toggle or nav menu not found!');
-    }
-    
+    // Counter Animation
     const animateCounter = (element, target, duration = 2000) => {
         const start = 0;
         const increment = target / (duration / 16);
