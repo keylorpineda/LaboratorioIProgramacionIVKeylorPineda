@@ -1,10 +1,7 @@
-// ==========================================
-// MAGAZINE GLASSMORPHISM 3D - INTERACTIONS
-// ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // ===== PARALLAX 3D DEL MOUSE =====
+
     const parallaxElements = document.querySelectorAll('.glass-card, .hero-visual, .floating-element');
     
     document.addEventListener('mousemove', (e) => {
@@ -21,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // ===== TILT 3D EN CARDS =====
+
     const cards = document.querySelectorAll('.glass-card');
     
     cards.forEach(card => {
@@ -43,8 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
         });
     });
-    
-    // ===== SCROLL REVEAL ANIMATIONS =====
+
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -60,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     
-    // ===== MAGNETIC BUTTONS =====
+
     const magneticBtns = document.querySelectorAll('.magnetic-btn');
     
     magneticBtns.forEach(btn => {
@@ -76,8 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.style.transform = 'translate(0, 0)';
         });
     });
-    
-    // ===== SMOOTH SCROLL =====
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -88,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // ===== GRADIENT FOLLOW CURSOR =====
     const gradientCursor = document.querySelector('.gradient-cursor');
     if (gradientCursor) {
         document.addEventListener('mousemove', (e) => {
@@ -96,8 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             gradientCursor.style.top = e.clientY + 'px';
         });
     }
-    
-    // ===== MOBILE MENU TOGGLE =====
+
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
@@ -108,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // ===== STATS COUNTER ANIMATION =====
     const animateCounter = (element, target, duration = 2000) => {
         const start = 0;
         const increment = target / (duration / 16);
@@ -140,7 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
         statsObserver.observe(el);
     });
     
-    // ===== DYNAMIC BACKGROUND PARTICLES =====
     const createParticle = () => {
         const particle = document.createElement('div');
         particle.className = 'dynamic-particle';
@@ -155,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setInterval(createParticle, 300);
     
-    // ===== SKILLS HOVER GLOW =====
     const skillItems = document.querySelectorAll('.skill-item');
     skillItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
