@@ -1,4 +1,4 @@
-// Intersection Observer para animaciones al hacer scroll
+
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -8,7 +8,7 @@ const observerCallback = (entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animated');
-            // Una vez animado, dejar de observar
+            
             observer.unobserve(entry.target);
         }
     });
@@ -16,13 +16,13 @@ const observerCallback = (entries) => {
 
 const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-// Función para inicializar animaciones
+
 function initScrollAnimations() {
     const elements = document.querySelectorAll('.animate-on-scroll');
     elements.forEach(el => observer.observe(el));
 }
 
-// Animación de partículas flotantes
+
 function createParticles() {
     const background = document.querySelector('.animated-background');
     if (!background) return;
@@ -45,15 +45,14 @@ function createParticles() {
         particle.style.top = `${y}%`;
         particle.style.animationDuration = `${duration}s`;
         particle.style.animationDelay = `${delay}s`;
-        
-        // Animación personalizada
+ 
         particle.style.animation = `floatParticle ${duration}s ease-in-out ${delay}s infinite`;
         
         background.appendChild(particle);
     }
 }
 
-// Keyframes dinámicos para partículas
+
 function addParticleKeyframes() {
     const style = document.createElement('style');
     style.textContent = `
@@ -71,7 +70,6 @@ function addParticleKeyframes() {
     document.head.appendChild(style);
 }
 
-// Smooth scroll para links de navegación
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -88,8 +86,7 @@ function initSmoothScroll() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
-                // Cerrar menú móvil si está abierto
+
                 const navMenu = document.querySelector('.nav-menu');
                 if (navMenu) {
                     navMenu.classList.remove('active');
@@ -99,7 +96,6 @@ function initSmoothScroll() {
     });
 }
 
-// Efecto parallax sutil en scroll
 function initParallax() {
     let ticking = false;
     
@@ -108,14 +104,14 @@ function initParallax() {
             window.requestAnimationFrame(() => {
                 const scrolled = window.pageYOffset;
                 
-                // Mover orbes de fondo
+               
                 const orbs = document.querySelectorAll('.gradient-orb');
                 orbs.forEach((orb, index) => {
                     const speed = 0.1 + (index * 0.05);
                     orb.style.transform = `translateY(${scrolled * speed}px)`;
                 });
                 
-                // Efecto parallax en hero image
+               
                 const heroPhoto = document.querySelector('.hero-photo');
                 if (heroPhoto && scrolled < window.innerHeight) {
                     heroPhoto.style.transform = `translateY(${scrolled * 0.3}px) rotate(${3 - scrolled * 0.01}deg)`;
@@ -129,7 +125,6 @@ function initParallax() {
     });
 }
 
-// Highlight activo en navegación según scroll
 function initNavHighlight() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -156,7 +151,6 @@ function initNavHighlight() {
     });
 }
 
-// Contador animado para stats
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
     
@@ -192,7 +186,6 @@ function animateCounters() {
     counters.forEach(counter => counterObserver.observe(counter));
 }
 
-// Efecto de typing para el título (opcional)
 function typingEffect(element, text, speed = 100) {
     let i = 0;
     element.textContent = '';
@@ -208,7 +201,6 @@ function typingEffect(element, text, speed = 100) {
     type();
 }
 
-// Animación de fade-in escalonado para elementos
 function staggeredFadeIn(selector, delay = 100) {
     const elements = document.querySelectorAll(selector);
     elements.forEach((el, index) => {
@@ -225,30 +217,29 @@ function staggeredFadeIn(selector, delay = 100) {
     });
 }
 
-// Inicializar todas las animaciones cuando el DOM esté listo
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Agregar keyframes para partículas
+    
     addParticleKeyframes();
     
-    // Crear partículas
+
     createParticles();
     
-    // Inicializar animaciones de scroll
+
     initScrollAnimations();
     
-    // Smooth scroll
+  
     initSmoothScroll();
     
-    // Parallax effect
+   
     initParallax();
     
-    // Navigation highlight
+   
     initNavHighlight();
     
-    // Animate counters
+   
     animateCounters();
     
-    // Agregar clase animate-on-scroll a elementos que deben animarse
     const animatableSelectors = [
         '.skill-category',
         '.cert-card',
@@ -262,12 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.add('animate-on-scroll');
         });
     });
-    
-    // Re-inicializar el observer después de agregar las clases
     initScrollAnimations();
 });
 
-// Exportar funciones para uso global
 window.portfolioAnimations = {
     initScrollAnimations,
     createParticles,
