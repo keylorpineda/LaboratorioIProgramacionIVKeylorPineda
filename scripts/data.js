@@ -155,7 +155,7 @@ const education = [
     {
         degree: "Bachillerato en Ingeniería en Sistemas",
         institution: "Universidad Nacional de Costa Rica (UNA)",
-        location: "Heredia, Costa Rica",
+        location: "San José, Costa Rica",
         year: "2024 - 2027",
         description: "Formación integral en desarrollo de software, algoritmos, estructuras de datos y fundamentos de sistemas computacionales.",
         highlights: ["Enfoque en arquitecturas modernas y desarrollo full stack",
