@@ -563,7 +563,12 @@
 
                     <div class="contact-form-container">
                         <h3>Envíame un Mensaje</h3>
-                        <form id="contact-form" class="contact-form">
+                        <form id="contact-form" class="contact-form" action="https://formsubmit.co/keylorpineda729@gmail.com" method="POST">
+                            <input type="hidden" name="_subject" value="Nuevo mensaje desde tu portafolio">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="text" name="_honey" style="display:none">
+                            
                             <div class="form-group">
                                 <label for="name">Nombre Completo</label>
                                 <input type="text" id="name" name="name" placeholder="Tu nombre" required>
@@ -576,7 +581,7 @@
 
                             <div class="form-group">
                                 <label for="subject">Asunto</label>
-                                <input type="text" id="subject" name="subject" placeholder="¿En qué puedo ayudarte?" required>
+                                <input type="text" id="subject" name="Asunto" placeholder="¿En qué puedo ayudarte?" required>
                             </div>
 
                             <div class="form-group">
@@ -585,7 +590,8 @@
                             </div>
 
                             <button type="submit" class="submit-btn">
-                                Enviar Mensaje
+                                <span class="submit-text">Enviar Mensaje</span>
+                                <span class="submit-loading" style="display: none;">Enviando...</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                     <line x1="22" y1="2" x2="11" y2="13"/>
                                     <path d="M22 2L15 22l-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/>
