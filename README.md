@@ -8,11 +8,20 @@
 ## 📋 Tabla de Contenidos
 
 - [Introducción](#-introducción)
+- [Diseño del Portafolio](#-diseño-del-portafolio)
 - [Ofertas Analizadas](#-ofertas-analizadas)
 - [Patrones Comunes](#-patrones-comunes)
 - [Perfil Profesional Objetivo](#-perfil-profesional-objetivo)
 - [Justificación del Sitio Web](#-justificación-del-sitio-web)
 - [Diferenciadores Clave](#-diferenciadores-clave)
+
+---
+
+## 🎨 Diseño del Portafolio
+
+**Diseño en Figma:** [Ver prototipo completo](https://www.figma.com/make/zkLfB0WQOCNvZyB3ITssyn/Portfolio-website-for-developer?t=VyXH3IoY0YqVAcGd-1)
+
+**Sitio web desplegado:** [https://keylorpineda.github.io/LaboratorioIProgramacionIVKeylorPineda/](https://keylorpineda.github.io/LaboratorioIProgramacionIVKeylorPineda/)
 
 ---
 
