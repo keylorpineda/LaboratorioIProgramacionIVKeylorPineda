@@ -238,9 +238,29 @@
     .menu-toggle {
         display: flex;
     }
+    .nav-icon {
+        display: block;
+    }
     .nav-link {
         width: 100%;
-        padding: 0.75rem 1rem;
+        padding: 1rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(59, 130, 246, 0.15));
+        border-color: rgba(6, 182, 212, 0.3);
+        transform: translateX(8px);
+    }
+    .nav-link span {
+        font-size: 1rem;
+        font-weight: 500;
     }
     .hero-section {
         min-height: auto;
