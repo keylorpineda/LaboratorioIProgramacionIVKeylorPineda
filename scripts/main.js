@@ -299,8 +299,9 @@ function renderEducation() {
                 <div style="position: relative; z-index: 10;">
                     <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
                         <div class="education-header" style="display: flex; align-items: flex-start; gap: 1rem;">
-                            <div class="education-icon" style="width: 4rem; height: 4rem; background: ${bgGradient}; border: 1px solid ${borderColor}; border-radius: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <svg style="width: 2rem; height: 2rem; color: ${textColor};" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <div class="education-icon" style="width: 4rem; height: 4rem; background: ${bgGradient}; border: 2px solid ${borderColor}; border-radius: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
+                                <div style="position: absolute; inset: 0; background: ${orbGradient}; opacity: 0.3; animation: pulse 3s ease-in-out infinite;"></div>
+                                <svg style="width: 2rem; height: 2rem; color: ${textColor}; position: relative; z-index: 1; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                     <path d="M22 10v6M2 10l10-5 10 5-10 5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M6 12v5c3 3 9 3 12 0v-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -489,6 +490,75 @@ function initNavIndicator() {
     });
 }
 
+function animateTitle() {
+    const titleElement = document.querySelector('.typing-text');
+    if (!titleElement) return;
+    
+    const originalText = 'Full Stack Developer';
+    const chars = '!<>-_\\/[]{}—=+*^?#________';
+    let iteration = 0;
+    
+    const interval = setInterval(() => {
+        titleElement.textContent = originalText
+            .split('')
+            .map((letter, index) => {
+                if (index < iteration) {
+                    return originalText[index];
+                }
+                return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join('');
+        
+        if (iteration >= originalText.length) {
+            clearInterval(interval);
+            // Después de completar, envolver cada letra en span para efecto wave
+            wrapLettersInSpans();
+        }
+        
+        iteration += 1 / 3;
+    }, 30);
+}
+
+function wrapLettersInSpans() {
+    const titleElement = document.querySelector('.typing-text');
+    if (!titleElement) return;
+    
+    const text = titleElement.textContent;
+    titleElement.innerHTML = text
+        .split('')
+        .map((letter, index) => {
+            const delay = index * 0.05;
+            return `<span style="
+                display: inline-block; 
+                animation: letterWave 1.5s ease-in-out ${delay}s 1 both;
+                background: linear-gradient(90deg, var(--color-ocean), var(--color-aqua), var(--color-sky), var(--color-teal));
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            ">${letter === ' ' ? '&nbsp;' : letter}</span>`;
+        })
+        .join('');
+}
+
+// Función para voltear las tarjetas de proyectos
+function initFlipCards() {
+    // Hacer que todo el card sea clickeable para voltear
+    const flipCards = document.querySelectorAll('.flip-card');
+    flipCards.forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', (e) => {
+            // No voltear si se hace clic en un link, botón o elemento interactivo
+            if (e.target.tagName === 'A' || 
+                e.target.closest('a') || 
+                e.target.closest('.project-link') ||
+                e.target.closest('.project-links')) {
+                return;
+            }
+            card.classList.toggle('flipped');
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     
@@ -500,6 +570,14 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     
     initNavIndicator();
+    
+    // Inicializar flip cards
+    initFlipCards();
+    
+    // Animar título al cargar
+    setTimeout(() => {
+        animateTitle();
+    }, 500);
     
     console.log('Portfolio initialized successfully!');
 });
