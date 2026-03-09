@@ -111,16 +111,38 @@
         transition: transform var(--transition-base);
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
     }
     
     .nav-menu.active {
         transform: translateY(0);
     }
     
+    .nav-menu li {
+        width: 100%;
+    }
+    
     .nav-link {
         width: 100%;
-        padding: 1rem;
+        padding: 1rem 1.5rem;
         justify-content: flex-start;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        min-height: 60px;
+        box-sizing: border-box;
+    }
+    
+    .nav-link span {
+        flex: 1;
+        text-align: left;
+        white-space: nowrap;
+    }
+    
+    .nav-link .nav-icon {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
     }
     
     .menu-toggle {
