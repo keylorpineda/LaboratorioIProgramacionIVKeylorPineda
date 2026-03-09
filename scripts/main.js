@@ -1,20 +1,47 @@
 function initMobileMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
     
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-        
-        document.addEventListener('click', (e) => {
-            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                menuToggle.classList.remove('active');
-            }
-        });
+    if (!menuToggle || !navMenu) {
+        console.error('Menu elements not found');
+        return;
     }
+    
+   
+    menuToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isActive = navMenu.classList.contains('active');
+        
+        if (isActive) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        } else {
+            navMenu.classList.add('active');
+            menuToggle.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    });
+    
+   
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    
+
+    document.addEventListener('click', (e) => {
+        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
 }
 
 function renderCertifications() {
@@ -377,7 +404,6 @@ function initContactForm() {
         const submitText = submitBtn.querySelector('.submit-text');
         const submitLoading = submitBtn.querySelector('.submit-loading');
         
-        // Mostrar estado de carga
         if (submitText && submitLoading) {
             submitText.style.display = 'none';
             submitLoading.style.display = 'inline';
@@ -386,8 +412,7 @@ function initContactForm() {
         submitBtn.style.opacity = '0.7';
         submitBtn.style.cursor = 'not-allowed';
         
-        // El formulario se enviará automáticamente a FormSubmit
-        // FormSubmit redirigirá a su página de confirmación
+
     });
 }
 
@@ -400,7 +425,6 @@ function initNavIndicator() {
     
     let lastKnownSection = 'hero';
     
-    // Función para actualizar posición del indicador
     function updateIndicator(activeLink) {
         if (!activeLink) return;
         
@@ -414,14 +438,12 @@ function initNavIndicator() {
             indicator.style.transform = `translate3d(${left}px, 0, 0)`;
         });
     }
-    
-    // Inicializar
+
     setTimeout(() => {
         const activeLink = document.querySelector('.nav-link.active');
         if (activeLink) updateIndicator(activeLink);
     }, 100);
     
-    // Click en links - inmediato
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href').substring(1);
@@ -433,7 +455,6 @@ function initNavIndicator() {
         });
     });
     
-    // Scroll - más lento y estable
     const sections = Array.from(document.querySelectorAll('section[id]'));
     let scrollTimer;
     let isUpdating = false;
@@ -443,8 +464,7 @@ function initNavIndicator() {
         
         const scrollPos = window.scrollY + window.innerHeight / 3;
         let newSection = null;
-        
-        // Encontrar la sección visible
+
         for (const section of sections) {
             const rect = section.getBoundingClientRect();
             const sectionTop = section.offsetTop;
@@ -456,7 +476,6 @@ function initNavIndicator() {
             }
         }
         
-        // Solo actualizar si realmente cambió y no es el mismo
         if (newSection && newSection !== lastKnownSection) {
             isUpdating = true;
             lastKnownSection = newSection;
@@ -479,7 +498,6 @@ function initNavIndicator() {
         scrollTimer = setTimeout(checkActiveSection, 100);
     }, { passive: true });
     
-    // Resize
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
@@ -511,7 +529,6 @@ function animateTitle() {
         
         if (iteration >= originalText.length) {
             clearInterval(interval);
-            // Después de completar, envolver cada letra en span para efecto wave
             wrapLettersInSpans();
         }
         
@@ -531,23 +548,18 @@ function wrapLettersInSpans() {
             return `<span style="
                 display: inline-block; 
                 animation: letterWave 1.5s ease-in-out ${delay}s 1 both;
-                background: linear-gradient(90deg, var(--color-ocean), var(--color-aqua), var(--color-sky), var(--color-teal));
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
+                color: #FFFFFF;
             ">${letter === ' ' ? '&nbsp;' : letter}</span>`;
         })
         .join('');
 }
 
-// Función para voltear las tarjetas de proyectos
 function initFlipCards() {
-    // Hacer que todo el card sea clickeable para voltear
     const flipCards = document.querySelectorAll('.flip-card');
     flipCards.forEach(card => {
         card.style.cursor = 'pointer';
         card.addEventListener('click', (e) => {
-            // No voltear si se hace clic en un link, botón o elemento interactivo
+            
             if (e.target.tagName === 'A' || 
                 e.target.closest('a') || 
                 e.target.closest('.project-link') ||
@@ -571,10 +583,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     initNavIndicator();
     
-    // Inicializar flip cards
+
     initFlipCards();
     
-    // Animar título al cargar
     setTimeout(() => {
         animateTitle();
     }, 500);
