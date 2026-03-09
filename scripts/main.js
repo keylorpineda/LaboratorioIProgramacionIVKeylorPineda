@@ -372,18 +372,21 @@ function initContactForm() {
     if (!form) return;
     
     form.addEventListener('submit', (e) => {
-        e.preventDefault();
+        const submitBtn = form.querySelector('.submit-btn');
+        const submitText = submitBtn.querySelector('.submit-text');
+        const submitLoading = submitBtn.querySelector('.submit-loading');
         
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData);
+        // Mostrar estado de carga
+        if (submitText && submitLoading) {
+            submitText.style.display = 'none';
+            submitLoading.style.display = 'inline';
+        }
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        submitBtn.style.cursor = 'not-allowed';
         
-        console.log('Form submitted:', data);
-        
-        // Simulación de envío exitoso
-        alert('¡Gracias por tu mensaje! Te responderé pronto.');
-        
-        // Resetear formulario
-        form.reset();
+        // El formulario se enviará automáticamente a FormSubmit
+        // FormSubmit redirigirá a su página de confirmación
     });
 }
 
