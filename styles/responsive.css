@@ -140,6 +140,19 @@
         height: 24px;
     }
     
+    .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .theme-toggle {
+        display: flex !important;
+        padding: 0.75rem;
+        width: auto;
+        height: auto;
+    }
+    
     .menu-toggle {
         display: flex !important;
         flex-direction: column;

@@ -103,21 +103,21 @@ function renderCertifications() {
                                 <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke-linecap="round"/>
                                 <path d="M22 4L12 14.01l-3-3" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-cyan-400);">Verificada</span>
+                            <span style="font-size: 0.75rem; font-weight: 600; color: var(--color-cyan-400);">Verified</span>
                         </div>
                     ` : ''}
                 </div>
-                <h3 style="font-size: 1.125rem; font-weight: 700; color: var(--color-white); margin-bottom: 0.5rem; transition: color 0.3s ease;">
+                <h3 class="cert-card-title" style="font-size: 1.125rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 0.5rem; transition: color 0.3s ease;">
                     ${cert.title}
                 </h3>
-                <p style="font-size: 0.875rem; font-weight: 600; color: ${colors.text}; margin-bottom: 1rem;">
+                <p class="cert-card-issuer" style="font-size: 0.875rem; font-weight: 600; color: ${colors.text}; margin-bottom: 1rem;">
                     ${cert.issuer}
                 </p>
                 <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-                    <span style="font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; ${colors.badge}; border-radius: 9999px;">
+                    <span class="cert-card-badge" style="font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; ${colors.badge}; border-radius: 9999px;">
                         ${cert.level}
                     </span>
-                    <span style="font-size: 0.75rem; color: var(--color-zinc-400); font-weight: 500;">
+                    <span class="cert-card-date" style="font-size: 0.75rem; color: var(--color-text-tertiary); font-weight: 500;">
                         ${cert.date}
                     </span>
                 </div>
@@ -190,7 +190,7 @@ function renderProjects() {
                                 <svg style="width: 0.75rem; height: 0.75rem;" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>
                                 </svg>
-                                DESTACADO
+                                FEATURED
                             </div>
                         </div>
                         <div style="position: relative; height: 12rem; overflow: hidden; border-radius: 1.5rem 1.5rem 0 0;">
@@ -231,7 +231,7 @@ function renderProjects() {
                                     <svg style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                         <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                    Ver Demo
+                                    View Demo
                                 </button>
                                 <button style="padding: 0.75rem 1rem; border: 1px solid ${colors.border}; color: ${colors.text}; font-weight: 700; border-radius: 0.75rem; transition: all 0.3s ease;">
                                     <svg style="width: 1.25rem; height: 1.25rem;" viewBox="0 0 24 24" fill="currentColor">
@@ -289,7 +289,7 @@ function renderProjects() {
                                 <svg style="width: 0.75rem; height: 0.75rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                     <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
-                                Ver más
+                                View more
                             </button>
                         </div>
                     </article>

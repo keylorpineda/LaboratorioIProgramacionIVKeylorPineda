@@ -85,7 +85,7 @@ const certifications = [
 const projects = [
     {
         title: "CloudScale Platform",
-        description: "Plataforma de orquestación multi-cloud que gestiona +100K contenedores diarios con auto-scaling inteligente y monitoreo en tiempo real.",
+        description: "Multi-cloud orchestration platform managing +100K daily containers with intelligent auto-scaling and real-time monitoring.",
         tags: ["Kubernetes", "Go", "React", "Terraform", "AWS"],
         impact: "99.99% uptime",
         color: "cyan",
@@ -94,7 +94,7 @@ const projects = [
     },
     {
         title: "FinTech Analytics Engine",
-        description: "Motor de análisis financiero en tiempo real procesando 50M+ transacciones diarias con ML para detección de fraude y predicción de tendencias.",
+        description: "Real-time financial analytics engine processing 50M+ daily transactions with ML for fraud detection and trend prediction.",
         tags: ["Python", "Apache Kafka", "PostgreSQL", "Redis", "TensorFlow"],
         impact: "90% fraud detection",
         color: "purple",
@@ -103,7 +103,7 @@ const projects = [
     },
     {
         title: "E-Commerce Microservices Suite",
-        description: "Arquitectura de microservicios escalable para plataforma e-commerce con 5M+ usuarios activos mensuales y procesamiento de pagos global.",
+        description: "Scalable microservices architecture for e-commerce platform with 5M+ active monthly users and global payment processing.",
         tags: ["Node.js", "Next.js", "GraphQL", "MongoDB", "Stripe"],
         impact: "$50M+ processed",
         color: "blue",
@@ -112,7 +112,7 @@ const projects = [
     },
     {
         title: "Real-Time Collaboration SaaS",
-        description: "Plataforma colaborativa en tiempo real con WebRTC y WebSockets, soportando 10K+ usuarios concurrentes con sincronización instantánea.",
+        description: "Real-time collaborative platform with WebRTC and WebSockets, supporting 10K+ concurrent users with instant synchronization.",
         tags: ["TypeScript", "WebRTC", "Socket.io"],
         impact: "10K concurrent users",
         color: "violet",
@@ -121,7 +121,7 @@ const projects = [
     },
     {
         title: "Healthcare Data Platform",
-        description: "Sistema HIPAA-compliant para gestión de datos médicos con encriptación end-to-end y análisis predictivo para diagnóstico asistido.",
+        description: "HIPAA-compliant system for medical data management with end-to-end encryption and predictive analytics for assisted diagnosis.",
         tags: ["Rust", "Vue.js", "PostgreSQL"],
         impact: "HIPAA certified",
         color: "indigo",
@@ -130,7 +130,7 @@ const projects = [
     },
     {
         title: "IoT Monitoring Dashboard",
-        description: "Dashboard de monitoreo para red de 50K+ dispositivos IoT con visualización en tiempo real y alertas predictivas usando ML.",
+        description: "Monitoring dashboard for 50K+ IoT devices network with real-time visualization and predictive ML alerts.",
         tags: ["Python", "React", "InfluxDB"],
         impact: "50K+ devices",
         color: "cyan",
@@ -141,25 +141,25 @@ const projects = [
 
 const education = [
     {
-        degree: "Maestría en Ciberseguridad",
-        institution: "Tecnológico de Costa Rica (TEC)",
+        degree: "Master's in Cybersecurity",
+        institution: "Costa Rica Institute of Technology (TEC)",
         location: "Cartago, Costa Rica",
         year: "2027 - 2028",
-        description: "Especialización avanzada en seguridad informática, criptografía, análisis de vulnerabilidades y defensa contra ciberataques.",
+        description: "Advanced specialization in computer security, cryptography, vulnerability analysis, and cyber attack defense.",
         highlights: [
-            "Enfoque en seguridad de sistemas distribuidos y cloud",
-            "Investigación en detección de amenazas con Machine Learning"
+            "Focus on distributed systems and cloud security",
+            "Research in threat detection with Machine Learning"
         ],
         color: "cyan"
     },
     {
-        degree: "Bachillerato en Ingeniería en Sistemas",
-        institution: "Universidad Nacional de Costa Rica (UNA)",
+        degree: "Bachelor's in Systems Engineering",
+        institution: "National University of Costa Rica (UNA)",
         location: "San José, Costa Rica",
         year: "2024 - 2027",
-        description: "Formación integral en desarrollo de software, algoritmos, estructuras de datos y fundamentos de sistemas computacionales.",
-        highlights: ["Enfoque en arquitecturas modernas y desarrollo full stack",
-            "Participación en proyectos de investigación"
+        description: "Comprehensive education in software development, algorithms, data structures, and computational systems fundamentals.",
+        highlights: ["Focus on modern architectures and full stack development",
+            "Participation in research projects"
         ],
         color: "purple"
     }
