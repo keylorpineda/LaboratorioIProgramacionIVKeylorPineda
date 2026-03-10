@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     if (menuToggle && navMenu) {
-        // Toggle menu on button click
-        menuToggle.addEventListener('click', function(e) {
+        // Toggle menu on button click/touch
+        const toggleMenu = function(e) {
             e.preventDefault();
             e.stopPropagation();
             
@@ -56,27 +56,34 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.classList.toggle('active');
             
             console.log('📱 Menu toggled:', isActive ? 'OPEN' : 'CLOSED');
-        });
+            console.log('📱 Menu classList:', navMenu.classList.toString());
+        };
+        
+        // Use both click and touch events for better mobile support
+        menuToggle.addEventListener('click', toggleMenu, true);
         
         // Close menu when clicking on a link
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            const closeMenu = function(e) {
                 console.log('🔗 Link clicked, closing menu');
                 navMenu.classList.remove('active');
                 menuToggle.classList.remove('active');
-            });
+            };
+            link.addEventListener('click', closeMenu);
         });
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                if (navMenu.classList.contains('active')) {
-                    console.log('🔲 Clicked outside, closing menu');
-                    navMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
+        // Close menu when clicking outside (with delay to avoid race condition)
+        setTimeout(() => {
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                    if (navMenu.classList.contains('active')) {
+                        console.log('🔲 Clicked outside, closing menu');
+                        navMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
                 }
-            }
-        });
+            });
+        }, 100);
     } else {
         console.error('❌ Menu elements not found!', { menuToggle, navMenu });
     }

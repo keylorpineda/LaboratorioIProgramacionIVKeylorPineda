@@ -2035,8 +2035,7 @@ section {
     gap: var(--gap-lg);
 }
 
-.education-stats,
-.edu-stat {
+.education-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-lg);
